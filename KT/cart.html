@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fresh Food</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+<link rel="stylesheet" href=".//css/cart.css" />
+
+<body>
+    <!-- MOBILE NAV -->
+    <div class="mb-nav">
+        <div class="mb-move-item"></div>
+        <div class="mb-nav-item active">
+            <a href="#home">
+                <i class="bx bxs-home"></i>
+            </a>
+        </div>
+        <div class="mb-nav-item">
+            <a href="#about">
+                <i class="bx bxs-wink-smile"></i>
+            </a>
+        </div>
+    </div>
+    <!-- END MOBILE NAV -->
+    <!-- BACK TO TOP BTN -->
+    <a href="#home" class="back-to-top">
+        <i class="bx bxs-to-top"></i>
+    </a>
+    <!-- END BACK TO TOP BTN -->
+    <!-- TOP NAVIGATION -->
+    <div class="nav">
+        <div class="menu-wrap">
+            <a href="#home">
+                <div class="logo">Freshfood</div>
+            </a>
+            <div class="menu h-xs">
+                <a href="index.html">
+                    <div class="menu-item">Home</div>
+                </a>
+                <a href="#about">
+                    <div class="menu-item">About</div>
+                </a>
+                <a href="#food-menu-section">
+                    <div class="menu-item">Menu</div>
+                </a>
+                <a href="#testimonial">
+                    <div class="menu-item">Rating</div>
+                </a>
+            </div>
+            <div class="right-menu">
+                <div class="cart-btn">
+                    <i class="bx bx-cart-alt"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cart-table">
+        <div class="cart-header">
+            <div class="header-item">Product Name</div>
+            <div class="header-item">Price</div>
+            <div class="header-item">Quanity</div>
+            <div class="header-item">Price</div>
+            <div class="header-item">Action</div>
+        </div>
+        <div class="cart-item" id="product1">
+            <div class="product-name">Salad</div>
+            <div class="price">$12</div>
+            <div class="quantity">
+                <input type="number" class="quantity-input" value="1" min="1" />
+            </div>
+            <div class="total">$12</div>
+            <div class="actions">
+                <button class="delete-btn" onclick="deleteProduct()">
+                    Delete
+                </button>
+                <script>
+                    function deleteProduct() {
+                        alert("Success!!!!")
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="cart-item" id="product2">
+            <div class="product-name">Salad</div>
+            <div class="price">$14</div>
+            <div class="quantity">
+                <input type="number" class="quantity-input" value="1" min="1" />
+            </div>
+            <div class="total">$14</div>
+            <div class="actions">
+                <button class="delete-btn" onclick="deleteProduct()">
+                    Delete
+                </button>
+            </div>
+        </div>
+
+        <!-- Các mục khác trong giỏ hàng -->
+
+        <div class="cart-summary">
+            <!-- Tổng tiền -->
+            <div class="total-container">
+                <p>Total:</p>
+                <p class="total-price" id="cartTotal">$26</p>
+            </div>
+
+            <!-- Nút Mua hàng -->
+            <a >
+                <button onclick="byyy()" class="buy-btn">Buy</button>
+        </div>
+        <script>
+            function byyy() {
+                alert("success");
+                location.assign("logout.html")
+            }
+        </script>
+        </a>
+    </div>
+    <script src="cart.js"></script>
+</body>
+
+</html>

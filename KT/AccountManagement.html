@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Account-Management</title>
+    <style>
+        fieldset{
+            border-radius: 40px;
+            margin: 10px;
+        }
+        legend{
+            text-align: center;
+            border: 1px solid rgb(107, 103, 103);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding:10px;
+            border-radius: 40px;
+        }
+        .Pinp{
+            display: flex;
+            justify-content: space-around;
+        }
+        .Pinp > div{
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        label > input{
+            padding: 10px;
+        }
+        table {
+            margin: 0 auto;
+        }
+        th,td {
+            padding: 40px;
+        }
+        /* i+i{
+            margin-right: 10px;
+        } */
+        td > i {
+            padding: 10px;
+            margin-right: 10px;
+        }
+        i:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+     <!-- =============== Navigation ================ -->
+     <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="logo-apple"></ion-icon>
+                        </span>
+                        <span class="title" style="font-size: 29px; font-family: 'Poppins', sans-serif;"> Fresh
+                            Food</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Admin.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="orderLi">
+                    <a href="orderManagement.html">
+                        <span class="icon">
+
+                            <ion-icon name="reorder-three-outline"></ion-icon>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ProductManagement.html">
+                        <span class="icon">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="AccountManagement.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Account Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-open"></ion-icon>
+                        </span>
+                        <span class="title"> Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    </script>
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="./assets/customer01.jpg" alt="">
+                </div>
+            </div>
+
+
+            <!--  tutu  -->
+            <fieldset>
+                <legend>User Account</legend>
+                <div class="Pinp">
+                    <div class="inptex1">
+                        <label for=""> User Name
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div class="inptex1">
+                        <label for=""> Full Name
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div class="inptex1">
+                        <label for=""> Date
+                            <input type="text">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="">
+                            <input type="submit" name="" id="" value="Search" onclick="aSearch()">
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <table border="1px">
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>User Name</th>
+                    <th>Date</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Yasou Zackerberg</td>
+                    <td>admin1</td>
+                    <td>11/11/2300</td>
+                    <td>
+                        <i  class="fa-solid fa-lock" onclick="(alertFun())"></i>
+                        <i  class="fa-solid fa-trash" onclick="(alertFundlt())" > </i>
+                        <script>
+                            function alertFun() {
+                                alert("Block it ???");
+                                location.assign("AccountManagement.html");
+                            }
+                        </script>
+                            <script>
+                                function alertFundlt() {
+                                    alert("Delete it ???");
+                                    location.assign("AccountManagement.html");
+                                }
+                            </script>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Zed Zackerberg</td>
+                    <td>admin2</td>
+                    <td>12/11/2301</td>
+                    <td>
+                        <i class="fa-solid fa-lock" onclick="(alertFun())"></i>
+                        <i class="fa-solid fa-trash"onclick="(alertFundlt())" ></i></td>
+                </tr>
+            </table>
+                        <!-- =========== Scripts =========  -->
+                        <script src="admin.js"></script>
+                        <script>
+                            function aSearch() {
+                                alert("Success!!!!!");
+                                location.assign("AccountManagement.html");
+                            }
+                        </script>
+
+                        <!-- ====== ionicons ======= -->
+                        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

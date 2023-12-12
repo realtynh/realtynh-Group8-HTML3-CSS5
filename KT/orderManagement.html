@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order-Management</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="./css/order.css">
+    <style>
+.fs1 {
+    border: 2px solid rgb(117, 116, 116);
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 0 10px;
+}
+
+.fs1>div {
+    margin: 15px 0;
+    position: relative;
+    width: calc(50% - 20px);
+}
+
+div>input,
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 40px;
+    border: 1px solid rgb(111, 107, 107);
+    box-sizing: border-box;
+}
+
+fieldset+fieldset {
+    margin: 10px;
+}
+
+legend {
+    text-align: center;
+}
+
+table {
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+}
+
+th, td {
+    padding: 20px;
+}
+
+th {
+    text-decoration: underline;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+    fieldset>div {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+/*  */
+.fs2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.fs2 > .opd1{
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+}
+.inf1{
+    flex: 1;
+
+}
+div > h4{
+    text-align: center;
+    text-decoration:underline;
+}
+.ul1 > .li1{
+    list-style: none;
+    padding: 0;
+}
+.li1{
+    margin: 10px;
+}
+.opd1{
+    flex: 2;
+}
+.st1{
+    flex: 1;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="logo-apple"></ion-icon>
+                        </span>
+                        <span class="title" style="font-size: 29px; font-family: 'Poppins', sans-serif;"> Fresh
+                            Food</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Admin.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="orderLi">
+                    <a href="">
+                        <span class="icon">
+
+                            <ion-icon name="reorder-three-outline"></ion-icon>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ProductManagement.html">
+                        <span class="icon">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="AccountManagement.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Account Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-open"></ion-icon>
+                        </span>
+                        <span class="title"> Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="./assets/customer01.jpg" alt="">
+                </div>
+            </div>
+            <!-- Methods -->
+
+            <fieldset class="fs1">
+                <legend style="border: 1px solid rgb(95, 94, 94); padding: 20px; border-radius: 40px;">Order Management</legend>
+                <div>
+                    <label for="">User Name</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">Date</label>
+                    <input type="date">
+                </div>
+                <div>
+                    <label for="">Status</label>
+                    <select id="st1" name="status">
+                        <option value="All">All</option>
+                        <option value="Peending">Peending</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Due">Due</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">&nbsp</label>
+                    <input type="submit" name="" id="" value="Search" onclick="loaddingpageOrder()">
+                </div>
+            </fieldset>
+
+            <!-- <fieldset>
+                <table>
+                    <tr>
+                        <th>Imformation</th>
+                        <th>Product Order</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Address: Heaven, Distric 5.</td>
+                        <td><img src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" style="width: 300px;" alt=""></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number: +8499-999-999</td>
+                        <td>Product Name : Rau Muon Xao Toi</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Payment Option : Mono Payment</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Time order: 24:00 11-11-2300</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>User Name: Yasou Zackerberg</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+        
+         
+                </table>
+            </fieldset>
+        -->
+        <div style="margin-top: 10px;border-radius: 40px;border: 2px solid rgb(88, 85, 85);" class="fs2">
+            <div class="inf1">
+                <h4>Imformation</h3>
+                    <ul class="ul1">
+                        <li class="li1">Address: Demacia </li>
+                        <li class="li1">Phone Number: +84.9898.9899</li>
+                        <li class="li1">Payment Option: Mobile Payment</li>
+                        <li class="li1">Time order: 11:24 28-11-2023</li>
+                        <li class="li1">User Name: Garen </li>
+                    </ul>
+            </div>
+            <div class="opd1">
+                <h4>Product Ordered</h4>
+                    <img src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" style="width: 40%; border-radius: 150px;" alt="">
+                <div style="float: right; width: 50%;">
+                    <ul class="ul1">
+                        <li class="li1">Product Name : Carly Jayne</li>
+                        <li class="li1">Quantity : 6</li>
+                    </ul>
+                </div>
+        
+            </div>
+            <div class="st1" style="width: 100%">
+                <h4>Status</h4>
+                <p style="margin-top: 55px;background-color: #e9b240;height: 30px;border-radius: 40px;text-align: center; padding-top: 5px;">Pendding</p>
+            </div>
+            </div>
+            <div style="margin-top: 10px;border-radius: 40px;border: 2px solid rgb(88, 85, 85);" class="fs2">
+                <div class="inf1">
+                    <h4>Imformation</h3>
+                        <ul class="ul1">
+                            <li class="li1">Address: Demacia </li>
+                            <li class="li1">Phone Number: +84.9898.9899</li>
+                            <li class="li1">Payment Option: Mobile Payment</li>
+                            <li class="li1">Time order: 11:24 28-11-2023</li>
+                            <li class="li1">User Name: Garen </li>
+                        </ul>
+                </div>
+                <div class="opd1">
+                    <h4>Product Ordered</h4>
+                        <img src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" style="width: 40%; border-radius: 150px;" alt="">
+                    <div style="float: right; width: 50%;">
+                        <ul class="ul1">
+                            <li class="li1">Product Name : Carly Jayne</li>
+                            <li class="li1">Quantity : 6</li>
+                        </ul>
+                    </div>
+            
+                </div>
+                <div class="st1" style="width: 100%">
+                    <h4>Status</h4>
+                    <p style="margin-top: 55px;background-color: #1caf37;height: 30px;border-radius: 40px;text-align: center; padding-top: 5px;">Delivered</p>
+                </div>
+                </div>
+
+
+            <!-- =========== Scripts =========  -->
+            <script src="admin.js"></script>
+
+            <!-- ====== ionicons ======= -->
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

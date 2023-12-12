@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/phanloai.css">
+    <title>Document</title>
+    <style>
+        .addCart{
+            /* background-color: rgb(41, 40, 40); */
+            background-color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 30%;
+            color: white;
+            display: none;
+        }
+        .methodCredit{
+            flex: 1;
+        }
+        .methodCredit.methodCredit{
+            margin-right: 5px;
+        }
+        /*  */
+        .l1:hover{
+        color:  white;
+    }
+    #imgON{
+        display: none;
+        position: fixed;
+        top: 81px;
+        max-height: 100px;
+        width: 100px;
+        text-align: center;
+        right: 20px;
+        background-color: rgba(128, 128, 128, 0.366);
+    }
+    li{
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+    <!-- TOP NAVIGATION -->
+    <div class="nav">
+        <div class="menu-wrap">
+            <a href="logout.html">
+                <div class="logo">
+                    Freshfood
+                </div>
+            </a>
+            <div class="menu h-xs">
+                <a href="logout.html">
+                    <div class="menu-item active">
+                        Back
+                    </div>
+                </a>
+            </div>
+            <div class="right-menu">
+                <a href="cart.html">
+                    <div class="cart-btn">
+                        <i class='bx bx-cart-alt'></i>
+                    </div>
+                </a>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div style="margin-right: 5px; color: #479e59;"><b>Jenny Ho</b></div>
+            <div style="width: 30px; height: 30px;">
+                <img class="dropbtn" onclick="dropbtn()" src="./assets/michael-dam-mEZ3PoFGs_k-unsplash.jpg" style="object-fit: cover; width: 100%; border-radius: 2rem; height: 100%;" alt="">
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        function dropbtn() {
+            var imgON = document.getElementById("imgON");
+            if (imgON.style.display ==="none"|| imgON.style.display === "")
+            {
+                imgON.style.display="block";
+            }
+            else {
+                        // Nếu đang hiển thị, ẩn
+                        imgON.style.display = "none";
+                    }
+        }
+    </script>
+    <!--  -->
+    <div class="container1">
+
+        <div class="container2_1">
+            <div class="wrap_Img">
+                <img src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" alt="" class="img-holder1">
+            </div>
+        </div>
+        
+        <div class="container2_2">
+            <div>
+                <div>
+                    <h4 style="text-decoration: underline; text-align: center;">Lorem Ispum</h4> <hr>
+                    <div class="rating1">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                    </div>
+                    <hr>
+                    <div>
+                        <p style="text-align: center;"><b>Current Price : 19.2$ </b> &nbsp;&nbsp; <del>Regular Price : 23.8$</del> &nbsp;&nbsp; <b><em style="color: rgb(15, 152, 15);">SAVE 20%</em></b></p>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat harum rerum ipsam in omnis explicabo nobis debitis tempore vel hic soluta natus, inventore architecto minus officiis consequatur, possimus itaque maxime.
+                        </p>
+                    </div>
+                    <hr>
+                    <div>
+                        <label for=""> Size 
+                            <select class="slt_size" >
+                                <option value="">S</option>
+                                <option value="">M</option>
+                                <option value="">L</option>
+                            </select>
+                        </label>
+                    </div>
+                    <hr>
+                    <div>
+                        <label for="">Quantity
+                            <input type="number"class="Qty_size">
+                        </label>
+                        <button class="payBy" onclick="onCart()">Add To Cart</button>
+                    </div>
+                    <hr>
+                    <div>
+                        <button id="heartRed" class="btn_icon" onclick="changeColor()">
+                            <i class="fa-regular fa-heart fa-xl"></i>
+                        </button>
+                    </div>
+                    <hr>
+                    <div>
+                        <a href="fb.html" target="_blank">
+                            <button class="btn_icon" style="background-color: rgb(22, 22, 242);">
+                                <i style="color:#fff;" class="fa-brands fa-facebook fa-xl"></i>
+                            </button>
+                        </a>
+                        <a href="twichter.html" target="_blank">
+                            <button class="btn_icon" style="background-color: rgb(52, 157, 223);">
+                                <i class="fa-brands fa-twitter fa-xl" style="color: white;"></i>
+                            </button>
+                        </a>
+                        <a href="ins.html" target="_blank">
+                            <button class="btn_icon" style="background: linear-gradient(45deg,#FCCC63, #FBAD50,#E95950, #BC2A8D,#CD486B,#4C68D7,#8A3AB9, #8A3AB9);;">
+                                <i class="fa-brands fa-instagram fa-xl" style="color: white;"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <hr>
+                    <div class="toast1">
+                        <div class="frm1">
+                            <div class="frm1_icon">
+                                <i class="fa-solid fa-shield-halved fa-xl"></i>
+                        </div>
+                        <div class="frm1_body">
+                                <p class="frm1_msg">
+                                    Security Policy (Edit with Customer reassurance module)
+                                </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="toast1">
+                        <div class="frm1">
+                            <div class="frm1_icon">
+                                <i class="fa-solid fa-shield-halved fa-xl"></i>
+                        </div>
+                        <div class="frm1_body">
+                                <p class="frm1_msg">
+                                    Security Policy (Edit with Customer reassurance module)
+                                </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="toast1">
+                        <div class="frm1">
+                            <div class="frm1_icon">
+                                <i class="fa-solid fa-shield-halved fa-xl"></i>
+                        </div>
+                        <div class="frm1_body">
+                                <p class="frm1_msg">
+                                    Security Policy (Edit with Customer reassurance module)
+                                </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="seperateDiv">
+        <button class="seperateDiv_para">
+            Description     
+        </button>
+        <div class="image-container">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio blanditiis in mollitia, vitae perferendis enim velit accusantium eos deserunt odit autem inventore molestias rerum adipisci necessitatibus iste magni porro aliquid.
+        </div>
+        </div>
+        <!--  -->
+        <div class="seperateDiv">
+            <button class="seperateDiv_para">
+                Reviews     
+            </button>
+            <div class="image-container">
+                <button class="bnt_rv">
+                    WRITE A REVIEW
+                </button>
+            </div>
+            </div>
+            <!--  -->
+        <div class="ctnSss">
+            <div class="ctnSss1">
+                <h4 style="text-align: center; color: green; text-decoration:underline;" >JOURNEY TO OUR SUCCESS</h4>
+                <br>
+                <p>
+                    Every dish crafted with passion, using the freshest ingredients, ensuring a journey of culinary excellence that delights and defines our success.
+                </p>
+                <div>
+                    <ul>
+                        <li style="display: flex;">
+                            <div><i style="color: green;" class="fa-solid fa-square-check"></i></div>
+                            <div style="margin-left: 10px;">100% Organic Product</div>
+                        </li>
+                        <li style="display: flex;">
+                            <div><i style="color: green;" class="fa-solid fa-square-check"></i></div>
+                            <div style="margin-left: 10px;">Always Fresh And Natural Food</div>
+                        </li>
+                        <li style="display: flex;">
+                            <div><i style="color: green;" class="fa-solid fa-square-check"></i></div>
+                            <div style="margin-left: 10px;">Best Price</div>
+                        </li>
+                        <li style="display: flex;">
+                            <div><i style="color: green;" class="fa-solid fa-square-check"></i></div>
+                            <div style="margin-left: 10px;">The Top Choice Of The Expert                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ctnSss2">
+                <img src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" alt="" style="border-radius: 2rem;object-fit: cover; width: 100%;height: 100%;">
+            </div>
+        </div>
+    <!--  -->
+    <section class="footer bg-img" style="background-image: url(assets/nordwood-themes-pYWrdKO5ksI-unsplash.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-xs-12">
+                    <h1>
+                        Freshfood
+                    </h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, quas harum? Atque eius
+                        quaerat fuga sint molestiae illo corrupti vitae voluptatibus. Dicta rerum est delectus
+                        perspiciatis nemo nihil autem! Doloremque?</p>
+                    <br>
+                    <p>Email: example@mail.com</p>
+                    <p>Phone: +00 123 456 789</p>
+                    <p>Website: freshfood.com</p>
+                </div>
+                <div class="col-2 col-xs-12">
+                    <h1>
+                        About us
+                    </h1>
+                    <br>
+                    <p>
+                        <a href="#">
+                            Chefs
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Menu
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Testimonials
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            Lorem ipsum
+                        </a>
+                    </p>
+                </div>
+                <div class="col-4 col-xs-12">
+                    <h1>
+                        Subscribe & media
+                    </h1>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto aspernatur doloremque rerum nam
+                        ullam obcaecati error asperiores temporibus quo eum eaque sed odio vitae accusantium, dolorem
+                        nihil molestiae deserunt maxime!</p>
+                    <div class="input-group">
+                        <input type="text" placeholder="Enter your email">
+                        <button>
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <script src="menu.js"></script>
+
+<!-- END FOOTER SECTION -->
+<!-- CART -->
+
+    <div class="addCart" id="addCart" style="flex: 1;">
+        <div><h3 style="padding: 10px 0;background-color: green;margin-top: 80px; text-align: center;text-decoration: underline;">Your Cart</h3></div>
+    
+    
+        <div style="padding: 10px 0;text-align: center; background: #bbbce6;" ><p>ADD 150% FOR FREE SHIPPING</p></div>
+        <div style="padding: 10px 0;display: flex; color: black;">
+            <div style="flex: 1;"><img style="border-radius: 2rem;margin-left: 10px;object-fit: cover;width: 100%;" src="./assets/carly-jayne-Lv174o7fn7Y-unsplash.jpg" alt=""></div>
+            <div style="flex: 2; display: flex; flex-direction: column;">
+                <div style="flex: 1;text-align: center;"><h3>Lorem ispum</h3></div>
+                <div style="flex: 1;border: none; margin-left: 25px;">Quantity : <input type="number" name="" id="" style="outline: none;border-radius: 4px;padding: 5px 0;border: none;border-bottom: 1px solid black; text-align: center;"></div>
+                <div style="flex: 1;"><span style="float: right;margin-right: 5px;">Price : <b>120$</b></span></div>
+            </div>
+        </div>
+        <hr>
+
+        <div style="color: black;">
+            <div style="display: flex;">
+                <!-- <h4>Payment methods</h4> -->
+                <div class="methodCredit" style="width: 80%;display: flex; border: 1px solid black;align-items: center;margin-left: 5px;" >
+                    <div style="flex: 1;width: 40%; height: 100%;margin-right: 10px; align-items: center;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/dich-vu-visa.jpeg" alt="">
+                    </div>
+                    <div style="flex: 1;width: 40%; height: 100%;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/the-mastercard-la-gi-33-4005.png" alt="">
+                    </div>
+                    <input type="checkbox">
+                </div>
+
+                <div class="methodCredit" style="width: 80%;display: flex; border: 1px solid black;align-items: center;" >
+                    <div style="flex: 1;width: 40%; height: 100%;margin-right: 10px; align-items: center;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/068BjcjwBw0snwHIq0KNo5m-15.webp" alt="">
+                    </div>
+                    <div style="flex: 1;width: 40%; height: 100%;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/tải xuống.jpeg" alt="">
+                    </div>
+                    <input type="checkbox">
+                </div>
+
+                <div class="methodCredit" style="width: 80%;display: flex; border: 1px solid black;align-items: center;" >
+                    <div style="flex: 1;width: 40%; height: 100%;margin-right: 10px; align-items: center;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/bitcoin-payment-3.jpeg" alt="">
+                    </div>
+                    <div style="flex: 1;width: 40%; height: 100%;">
+                        <img style="margin-top: 7px;object-fit: cover; width: 100%;" src="./assets/bitcoin1-1723-1700916705583-170091670584644139636.webp" alt="">
+                    </div>
+                    <input type="checkbox">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div style="color: black; display: flex; align-items: center; justify-content: space-between;">
+            <h3 style="margin-left: 10px;">Total Order Value</h3>
+            <span style="margin-right: 10px;">120$</span>
+        </div>
+        <div style="color: black;font-size: 10px; margin-left: 10px;">
+            30 day money back guarantee
+        </div>
+
+        <div>
+            <button onclick="confirm1()" style="padding: 10px; background-color: green; color: white;border: none;border-radius: 4px;position: absolute;bottom: 0; right: 0;margin-bottom: 20px; margin-right: 10px;">Confirm</button>
+        </div>
+
+        <div onclick="offCart()" style="color: black; font-size: 50px; position: absolute;bottom: 0;left: 0;">
+            <i class='bx bxs-x-square'></i>
+        </div>
+    </div>
+<!-- JS Cart -->
+<script>
+    function onCart() {
+        var addCart = document.getElementById("addCart");
+        addCart.style.display = "block";
+    }
+    function offCart()
+    {
+        var offCArt = document.getElementById("addCart");
+        offCArt.style.display = "none";
+    }
+    function confirm1() {
+        location.assign("h.html")
+    }
+</script>
+<div id="imgON">
+    <a href="inforUser.html"><li class="l1" style="margin-bottom: 10px;margin-top: 10px;">Profile</li></a>
+    <a href="index.html"><li class="l1" style="margin-bottom: 10px;">Sign Out</li></a>
+</div>
+</div>
+</body>
+</html>

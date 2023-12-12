@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/product.css">
+    <title>Product-Management</title>
+    <style>
+        fieldset{
+            display: flex;
+            justify-content: space-between;
+            border-radius: 40px;
+            padding-bottom: 20px;
+        }
+        fieldset > div{
+            margin: 10px 0 ;
+        }
+        legend{
+            text-align: center;
+            border: 1px solid rgb(130, 125, 125);
+            padding: 15px;
+            border-radius: 40px;
+        }
+        .box1{
+            flex: 1;
+        }
+        .box2{
+            flex: 1;
+            text-align: center;
+        }
+        .box3{
+            flex: 1;
+        }
+        .srch{
+            width: 40%;
+        }
+        select{
+            width: 30%;
+        }
+        .prce,select,.srch{
+            padding: 15px;
+        }
+        
+        .tble1{
+            display: flex;
+            justify-content:center;
+        }
+        th,td{
+            padding: 40px;
+        }
+        button{
+            padding: 10px;
+            border-radius: 40px;
+            border: none;
+        }
+        .dlt{
+            background-color: red;
+        }
+        .edi{
+            background-color: rgba(0, 255, 30, 0.774);
+
+        }
+    .edi:hover{
+            background-color: gray;
+            cursor:pointer;
+        }
+    .dlt:hover{
+        background-color: gray;
+        cursor: pointer;
+    }
+    #formContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff; /* Màu nền của form */
+            padding: 20px;
+            border: 1px solid #ccc; /* Viền của form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng form */
+            z-index: 2; /* Đặt z-index để form hiển thị trên phần còn lại của trang */
+            box-sizing: border-box;
+        }
+        /*  */
+
+        label > input{
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        label > select{
+            border: none;
+            border-bottom: 1px solid black;
+        }
+
+        /* Ẩn form và overlay ban đầu */
+        body.modal-open #formContainer,
+        body.modal-open #overlay {
+            display: block;
+        }
+        /*  */
+                /* Ẩn input file */
+                input[type="file"] {
+            display: none;
+        }
+
+        /* Thiết lập giao diện tùy chỉnh */
+        .custom-file-input{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btnSend{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .divFake{
+            display: none; /* Ẩn div ban đầu */
+            /* Các thuộc tính CSS khác cho div khi ẩn đi */
+            background-color: lightgray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+     <!-- =============== Navigation ================ -->
+     <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="logo-apple"></ion-icon>
+                        </span>
+                        <span class="title" style="font-size: 29px; font-family: 'Poppins', sans-serif;"> Fresh
+                            Food</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Admin.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="orderLi">
+                    <a href="orderManagement.html">
+                        <span class="icon">
+
+                            <ion-icon name="reorder-three-outline"></ion-icon>
+                        </span>
+                        <span class="title">Order Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="ProductManagement.html">
+                        <span class="icon">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </span>
+                        <span class="title">Product Management</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="AccountManagement.html">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Account Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="password.html">
+                        <span class="icon">
+                            <ion-icon name="lock-open"></ion-icon>
+                        </span>
+                        <span class="title"> Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+
+                <div class="user">
+                    <img src="./assets/customer01.jpg" alt="">
+                </div>
+            </div>
+
+            <!--  -->
+
+            <fieldset>
+                <legend>Product</legend>
+                <div class="box1">
+                    <label for="">Type</label>
+                    <select name="" id="">
+                        <option value="">All</option>
+                        <option value="">Salad</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="box3">
+                    <span><input class="prce" type="text" placeholder="Min-Price"> - <input class="prce" type="text" placeholder="Max-Price"></span>
+                </div>
+                <div class="box2">
+                    <input type="submit" name="" class="srch" value="Search" onclick="loaddingPage()">
+                </div>
+            </fieldset>
+            <br>
+            <hr>
+            <br>
+            <!-- table -->
+            <div class="tble1">
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Change</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="./assets/sina-piryae-bBzjWthTqb8-unsplash.jpg" alt="" style="width: 100px"></td>
+                        <td>Sina Piryae</td>
+                        <td>18.8$</td>
+                        <td>
+                            <button class="dlt" onclick="dltOnc()">Delete</button>
+                            <button class="edi"id="showEdit" onclick="editPD()" >Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="./assets/sina-piryae-bBzjWthTqb8-unsplash.jpg" alt="" style="width: 100px"></td>
+                        <td>Sina Piryae</td>
+                        <td>18.8$</td>
+                        <td>
+                            <button class="dlt" onclick="dltOnc()">Delete</button>
+                            <button class="edi" id="showEdit" onclick="editPD()" >Edit</button>
+                        </td>
+                    </tr>
+          
+                </table>
+                <!--  -->
+                <div class="divFake" id="myDiv1">
+                    <table border="1">
+                        <tr>
+                            <th><label for="">ID
+                                <input type="text" name="" id="">
+                            </label></th>
+                            <th><label for="">Product Name
+                                <input type="text" name="" id="">
+                            </label></th>
+                            <th colspan="2"><label for="">Type
+                                <select name="" id="" style="width: 100px;">
+                                    <option value="">Salad</option>
+                                    <option value="">Mi Tom 3 Mien</option>
+                                    <option value="">Mi Tom Hai San</option>
+                                    <option value="">Mi Day </option>
+                                </select>
+                            </label></th>
+            
+                        </tr>
+                        <tr>
+                            <th colspan="1"><Label>
+                                Quanlity
+                                <input type="number" name="" id="">
+                            </Label></th>
+                            <th colspan="2">
+                                <label for="">Price
+                                    <input type="number" name="" id="">
+                                </label>
+                
+                            </th>
+                            <th>
+                                <label for="">
+                                    Size
+                                    <select name="" id="" style="width: 100px;">
+                                        <option value="">S</option>
+                                        <option value="">M</option>
+                                        <option value="">L</option>
+                                    </select>
+                                </label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="4">
+                                <label for="" style="text-align: center;">
+                                    Description
+                                    <input type="text" style="width: 80%; margin-top: 10px; border: none;border-bottom: 1px solid black;">
+                                </label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <label for="fileInput" class="custom-file-input">
+                                    Choose File
+                                    <input type="file" id="fileInput" onchange="updateFileName(this)">
+                                </label>
+                                <span id="fileName">&ThinSpace; No Image File Chosen</span>    
+                                <script>
+                                    function updateFileName(input) {
+                                        var fileName = document.getElementById('fileName');
+                                        fileName.textContent = input.files.length > 0 ? input.files[0].name : 'No file chosen';
+                                    }
+                                </script>        
+                            </th>
+                            <th colspan="2">
+                                <button class="btnSend" style="width: 100%;" onclick="addSucces()">
+                                    SAVE AND CHANGE
+                                </button>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            
+                <script>
+                    function editPD() {
+                        var myDiv1 = document.getElementById('myDiv1');
+                        myDiv1.style.display = 'block'; // Set display property to 'block' to show the div
+                    }
+                </script>
+
+                <!--  -->
+             <div class="divFake" id="myDiv1">asdasdasd</div>
+                <button id="showFormBtn" style="height: 40px;margin-left: 10px; margin-top: 10px; background-color: rgb(50, 49, 49); color: rgb(220, 206, 206);">Add Product</button>
+            </div>
+                <!-- <button id="showFormBtn" style="margin-left: 10px; margin-top: 10px; background-color: rgb(50, 49, 49); color: rgb(220, 206, 206);">Add Product</button> -->
+                        <!--  -->
+    <div class="table-container">
+
+        <table border="1" class="sideBar" id="formContainer">
+            <tr>
+                <th><label for="">ID
+                    <input type="text" name="" id="">
+                </label></th>
+                <th><label for="">Product Name
+                    <input type="text" name="" id="">
+                </label></th>
+                <th colspan="2"><label for="">Type
+                    <select name="" id="" style="width: 100px;">
+                        <option value="">Salad</option>
+                        <option value="">Mi Tom 3 Mien</option>
+                        <option value="">Mi Tom Hai San</option>
+                        <option value="">Mi Day </option>
+                    </select>
+                </label></th>
+
+            </tr>
+            <tr>
+                <th colspan="1"><Label>
+                    Quanlity
+                    <input type="number" name="" id="">
+                </Label></th>
+                <th colspan="2">
+                    <label for="">Price
+                        <input type="number" name="" id="">
+                    </label>
+    
+                </th>
+                <th>
+                    <label for="">
+                        Size
+                        <select name="" id="" style="width: 100px;">
+                            <option value="">S</option>
+                            <option value="">M</option>
+                            <option value="">L</option>
+                        </select>
+                    </label>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <label for="" style="text-align: center;">
+                        Description
+                        <input type="text" style="width: 80%; margin-top: 10px; border: none;border-bottom: 1px solid black;">
+                    </label>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <label for="fileInput" class="custom-file-input">
+                        Choose File
+                        <input type="file" id="fileInput" onchange="updateFileName(this)">
+                    </label>
+                    <span id="fileName">&ThinSpace; No Image File Chosen</span>    
+                    <script>
+                        function updateFileName(input) {
+                            var fileName = document.getElementById('fileName');
+                            fileName.textContent = input.files.length > 0 ? input.files[0].name : 'No file chosen';
+                        }
+                    </script>        
+                </th>
+                <th colspan="2">
+                    <button class="btnSend" style="width: 100%;" onclick="addSucces()">
+                        SEND
+                    </button>
+                </th>
+            </tr>
+        </table>
+    </div>
+                        <script>
+
+                            // Lấy phần tử nút và form
+                            var showFormBtn = document.getElementById("showFormBtn");
+                            var formContainer = document.getElementById("formContainer");
+                    
+                            // Gắn sự kiện click cho nút
+                            showFormBtn.addEventListener("click", function() {
+                                // Kiểm tra trạng thái hiện tại của form và đảo ngược nó
+                                if (formContainer.style.display === "none") {
+                                    formContainer.style.display = "block";
+                                } else {
+                                    formContainer.style.display = "none";
+                                }
+                            });
+                        </script>
+                        <!-- =========== Scripts =========  -->
+                        <script src="admin.js"></script>
+
+                        <!-- ====== ionicons ======= -->
+                        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</body>
+</html>
